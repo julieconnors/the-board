@@ -39,6 +39,10 @@ Login as Owner
 
 rails g model user email:string password_digest:string type:string name:string --no-test-framework
 
+Removed from layout file****
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
 
 Resources
 - owner [:new, :create, :show, :index, :delete, :update, :edit]
