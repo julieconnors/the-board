@@ -20,7 +20,7 @@ Horse
     has_many :rides
     has_many :riders, through :rides
 
-    rails g model horse name:string age:integer --no-test-framework
+    rails g model horse name:string --no-test-framework
 
 Ride
     - time
