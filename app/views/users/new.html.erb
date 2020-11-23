@@ -7,6 +7,8 @@
 <%= f.label :password %>
 <%= f.password_field :password %><br>
 <%= f.label :rider %>
-<%= f.check_box :rider %>
+<%= f.radio_button :rider, "1"%><br>
+<%= f.label "Owner" %>
+<%= f.radio_button :rider, "0"%><br>
 <%= f.submit "Register"%>
 <% end %>

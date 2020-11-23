@@ -10,6 +10,8 @@ Owner
     - name
     has_many :horses
 
+    rails g model owner name:string --no-test-framework
+
 Horse
     - name
     - age
@@ -18,6 +20,8 @@ Horse
     has_many :rides
     has_many :riders, through :rides
 
+    rails g model horse name:string age:integer --no-test-framework
+
 Ride
     - time
     - location
@@ -25,11 +29,15 @@ Ride
     belongs_to :horse
     belongs_to :rider
 
+    rails g model ride time:datetime location:string notes:text --no-text-framework
+
 Rider
     - name
     - barn
     has_many rides
     has_many :horses, through :rides
+
+    rails g resource rider name:string barn:string --no-test-framework
 
 Login as Rider
     - add rides
@@ -52,8 +60,12 @@ Resources
 ~ nested resource ride [:new, :create, :show, :index, :delete, :update, :edit]
 
 get "register", to: "users#new" 
+get "register-owner", to: "owners#new"
+
 get "login", to: "sessions#new"
 post "login", to: "session#create"
 post "logout", to: "session#destroy"
+
+
 
 

@@ -9,14 +9,15 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            render :show
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
         else 
             redirect_to "/register"
         end
     end
 
     def show
-        raise params.inspect
+        #raise params.inspect
     end
 
     private
