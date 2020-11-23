@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   post "logout", to: "session#destroy"
+
+  get "/auth/google_oauth2/callback", to: "session#omniauth"
   resources :riders
   resources :owners
   resources :users, only: [:create, :show]
