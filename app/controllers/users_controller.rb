@@ -8,9 +8,12 @@ class UsersController < ApplicationController
         #byebug
         @user = User.new(user_params)
 
-        if @user.save
+        if @user.save && @user.rider
+            #@rider = Rider.create(params[:user][:name])
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+
+            #I want to then redirect to rider or owners create path
+            redirect_to new_rider_path
         else 
             redirect_to "/register"
         end

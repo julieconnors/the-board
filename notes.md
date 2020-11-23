@@ -60,7 +60,6 @@ Resources
 ~ nested resource ride [:new, :create, :show, :index, :delete, :update, :edit]
 
 get "register", to: "users#new" 
-get "register-owner", to: "owners#new"
 
 get "login", to: "sessions#new"
 post "login", to: "session#create"
