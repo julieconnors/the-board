@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Rider.create(name: "Jenny Hannon")
-Rider.create(name: "Katie Strandberg")
-Rider.create(name: "Jane Fischer")
+Rider.create(name: "Jenny Hannon", user_id: 1)
+Rider.create(name: "Katie Strandberg", user_id: 1)
+Rider.create(name: "Jane Fischer", user_id: 1)
 
-Horse.create(name: "Olympic Fire")
-Horse.create(name: "Mindful")
-Horse.create(name: "Corice Z")
-Horse.create(name: "Varsity")
+Horse.create(name: "Olympic Fire", owner: "Ocean Echo Farm")
+Horse.create(name: "Mindful", owner: "Selma Garber")
+Horse.create(name: "Corice Z", owner: "Claire Kenna")
+Horse.create(name: "Varsity", owner: "Jane Fischer")
 

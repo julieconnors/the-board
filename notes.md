@@ -1,22 +1,17 @@
 Models
 
-User
+User/Trainer
     - name
     - email
     - password
-    - type - owner, rider
 
-Owner
-    - name
-    has_many :horses
-
+    has_many :riders
     rails g model owner name:string --no-test-framework
 
 Horse
     - name
-    - age
+    - owner
     
-    belongs_to :owner
     has_many :rides
     has_many :riders, through :rides
 
@@ -33,7 +28,8 @@ Ride
 
 Rider
     - name
-    - barn
+
+    belongs_to :trainer
     has_many rides
     has_many :horses, through :rides
 

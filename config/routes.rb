@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :riders
 
   resources :users do 
-    resources :boards
+    resources :rides
+    #resources :boards
   end
   resources :boards
-  resources :rides
   resources :horses
 end
