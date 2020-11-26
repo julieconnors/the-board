@@ -5,8 +5,13 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   post "logout", to: "session#destroy"
 
-  get "/auth/google_oauth2/callback", to: "session#omniauth"
+  get "/auth/google_oauth2/callback", to: "sessions#omniauth"
   resources :riders
-  resources :owners
-  resources :users, only: [:create, :show]
+
+  resources :users do 
+    resources :boards
+  end
+  resources :boards
+  resources :rides
+  resources :horses
 end

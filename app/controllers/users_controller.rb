@@ -5,22 +5,19 @@ class UsersController < ApplicationController
 
     def create
         #raise params.inspect
-        #byebug
         @user = User.new(user_params)
 
-        if @user.save && @user.rider
-            #@rider = Rider.create(params[:user][:name])
+        if @user.save
             session[:user_id] = @user.id
 
-            #I want to then redirect to rider or owners create path
-            redirect_to new_rider_path
+            redirect_to user_path(@user)
         else 
             redirect_to "/register"
         end
     end
 
     def show
-        #raise params.inspect
+        @user = User.find(params[:id])
     end
 
     private
