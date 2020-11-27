@@ -1,1 +1,18 @@
 <%= @rider.name %>
+<br>
+<%= link_to "Schedule Ride", new_rider_ride_path(@rider)%>
+
+<h2>All Rides</h2>
+<table>
+<th>Time</th>
+<th>Location</th>
+<th>Horse</th>
+<th>Notes</th>
+<% Ride.all.each do |ride| %>
+<tr>
+<td><%= ride.time %></td>
+<td><%= ride.location %></td>
+<td><%= ride.horse.name %></td>
+<td><%= ride.notes %></td>
+</tr>
+<% end %>

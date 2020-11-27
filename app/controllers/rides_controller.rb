@@ -1,13 +1,17 @@
 class RidesController < ApplicationController
     def new
         @ride = Ride.new
-        @user = User.find_by(id: session[:user_id])
     end
 
     def create
-        @ride = Ride.create(ride_params)
+        #raise params.inspect
+        @ride = Ride.new(ride_params)
+        @ride.rider_id = params[:rider_id]
+
+        @ride.save
         
-        redirect_to ride_path(@ride)
+        render :show
+        #redirect_to rider_ride_path(@ride.rider_id)
     end
 
     def show

@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   post "logout", to: "session#destroy"
 
   get "/auth/google_oauth2/callback", to: "sessions#omniauth"
-  resources :riders
-
-  resources :users do 
+  resources :riders do 
     resources :rides
-    #resources :boards
   end
-  resources :boards
+
+  resources :users
+
+  resources :rides
   resources :horses
 end

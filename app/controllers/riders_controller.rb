@@ -13,6 +13,7 @@ class RidersController < ApplicationController
 
     def show
         #raise params.inspect
+        @rider = Rider.find(params[:id])
     end
 
     private
