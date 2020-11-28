@@ -4,14 +4,11 @@ class RidesController < ApplicationController
     end
 
     def create
-        #raise params.inspect
-        @ride = Ride.new(ride_params)
-        @ride.rider_id = params[:rider_id]
-
+        @rider = Rider.find(params[:rider_id])
+        @ride = @rider.rides.build(ride_params)
         @ride.save
         
-        render :show
-        #redirect_to rider_ride_path(@ride.rider_id)
+        redirect_to rider_ride_path(@ride.rider_id, @ride)
     end
 
     def show
@@ -22,6 +19,6 @@ class RidesController < ApplicationController
     private
 
     def ride_params
-        params.require(:ride).permit(:location, :notes, :time, :rider_id, :horse_id)
+        params.require(:ride).permit(:location, :notes, :time, :rider_id, :horse_id, :day)
     end
 end

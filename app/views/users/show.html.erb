@@ -8,21 +8,21 @@
 
 All Rides
 <table>
-<th>Time</th>
-<th>Location</th>
-<th>Horse</th>
-<th>Rider</th>
-<th>Notes</th>
-<% Ride.all.each do |ride| %>
-<tr>
-<td><%= ride.time %></td>
-<td><%= ride.location %></td>
-<td><%= ride.horse.name %></td>
-<td><%= ride.rider.name %></td>
-<td><%= ride.notes %></td>
-</tr>
-<% end %>
-
+    <th>Time</th>
+    <th>Location</th>
+    <th>Horse</th>
+    <th>Rider</th>
+    <th>Notes</th>
+    <% Ride.all.each do |ride| %>
+    <tr>
+        <td><%= ride.date %></td>
+        <td><%= ride.time %></td>
+        <td><%= ride.location %></td>
+        <td><%= ride.horse.name %></td>
+        <td><%= ride.rider.name %></td>
+        <td><%= ride.notes %></td>
+    </tr>
+    <% end %>
 </table>
 <br>
 <%= link_to "Add Rider", new_rider_path %>
