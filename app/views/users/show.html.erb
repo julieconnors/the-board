@@ -15,8 +15,9 @@
 <%= f.text_field :name  %>
 <%= f.submit "Add Horse"%>
 <% end %>
+<%= link_to "All Horses", horses_path %>
 
-All Rides
+<h4>All Rides</h4>
 <table>
     <th>Date</th>
     <th>Time</th>
@@ -36,4 +37,3 @@ All Rides
     <% end %>
 </table>
 
-<%= link_to "Add Horse", new_horse_path %>
