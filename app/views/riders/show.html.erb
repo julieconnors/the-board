@@ -12,8 +12,8 @@
     <th>Notes</th>
     <% @rider.rides.each do |ride| %>
     <tr>
-        <td><%= ride.day %></td>
-        <td><%= ride.time %></td>
+        <td><%= ride.format_date %></td>
+        <td><%= ride.format_time %></td>
         <td><%= ride.horse.name %></td>
         <td><%= ride.location %></td>
         <td><%= ride.notes %></td>

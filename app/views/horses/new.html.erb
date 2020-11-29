@@ -1,0 +1,11 @@
+<% @user.horses.each do |horse| %>
+<%= horse.name %><br>
+<% end %>
+
+<%= form_for Horse.new, url: horses_path do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name  %>
+<%= f.label :owner %>
+<%= f.text_field :owner  %>
+<%= f.submit "Add Horse"%>
+<% end %>

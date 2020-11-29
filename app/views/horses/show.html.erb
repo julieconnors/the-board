@@ -1,5 +1,5 @@
-<%= @horse.name %>
-
+<%= @horse.name %>: <%= @horse.owner %>
+<br>
 All Rides
 
 <table>
@@ -10,8 +10,8 @@ All Rides
     <th>Notes</th>
     <% @horse.rides.each do |ride| %>
     <tr>
-        <td><%= ride.day %></td>
-        <td><%= ride.time %></td>
+        <td><%= ride.format_date %></td>
+        <td><%= ride.format_time %></td>
         <td><%= ride.location %></td>
         <td><%= ride.rider.name %></td>
         <td><%= ride.notes %></td>

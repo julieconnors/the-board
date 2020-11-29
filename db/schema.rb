@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 2020_11_28_104113) do
   create_table "horses", force: :cascade do |t|
     t.string "name"
     t.string "owner"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_horses_on_user_id"
   end
 
   create_table "riders", force: :cascade do |t|
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_11_28_104113) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "horses", "users"
   add_foreign_key "riders", "users"
   add_foreign_key "rides", "horses"
   add_foreign_key "rides", "riders"
