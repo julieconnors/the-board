@@ -5,14 +5,10 @@ class RidersController < ApplicationController
     end
 
     def create
-        #raise params.inspect
-
-        user = User.find_by(id: session[:user_id])
-        #@rider = Rider.create(rider_params)
-        @rider = user.riders.build(rider_params)
+        @rider = current_user.riders.build(rider_params)
         @rider.save
 
-        redirect_to user_path(user)
+        redirect_to user_path(current_user)
     end
 
     def show

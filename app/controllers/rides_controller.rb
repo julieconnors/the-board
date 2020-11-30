@@ -4,7 +4,7 @@ class RidesController < ApplicationController
     end
 
     def create
-        @rider = Rider.find(params[:rider_id])
+        @rider = Rider.find_by(id: params[:rider_id])
         @ride = @rider.rides.build(ride_params)
         @ride.save
         
@@ -12,7 +12,7 @@ class RidesController < ApplicationController
     end
 
     def show
-        @user = User.find(session[:user_id]) #refactor to current_user method
+        @rider = Rider.find_by(id: params[:rider_id])
         @ride = Ride.find_by(id: params[:id])
     end
 

@@ -1,5 +1,5 @@
 <h3>All Horses</h3>
-<% @user.horses.each do |horse| %>
+<% current_user.horses.each do |horse| %>
 <%= horse.name %><br>
 <% end %>
 <h3>New Horse</h3>

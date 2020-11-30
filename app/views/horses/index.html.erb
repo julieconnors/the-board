@@ -1,7 +1,7 @@
 <table>
 <th>Horse</th>
 <th>Owner</th>
-<% @user.horses.each do |horse| %>
+<% current_user.horses.each do |horse| %>
 <tr>
 <td><%= link_to horse.name, horse_path(horse) %></td> 
 <td><%= horse.owner %></td>

@@ -1,20 +1,14 @@
-<h3>Select Rider or Horse to Schedule Ride</h3>
+<h3>Select or Add Rider to Schedule Ride</h3>
 <h4>Riders</h4>
 <% Rider.all.each do |rider|%>
 <%= link_to rider.name, rider_path(rider) %><br>
 <% end %>
 <br>
 <%= form_for Rider.new, url: riders_path do |f| %>
-<%= f.label "Rider Name" %>
 <%= f.text_field :name %>
 <%= f.submit "Add Rider"%>
 <% end %>
-
-<%= form_for Horse.new, url: horses_path do |f| %>
-<%= f.label "Horse Name" %>
-<%= f.text_field :name  %>
-<%= f.submit "Add Horse"%>
-<% end %>
+<br>
 <%= link_to "All Horses", horses_path %>
 
 <h4>All Rides</h4>
@@ -25,7 +19,7 @@
     <th>Horse</th>
     <th>Rider</th>
     <th>Notes</th>
-    <% Ride.all.each do |ride| %>
+    <% current_user.rides.each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
@@ -33,6 +27,7 @@
         <td><%= ride.horse.name %></td>
         <td><%= ride.rider.name %></td>
         <td><%= ride.notes %></td>
+        <td><%#= link_to "Update", edit_rider_ride_path(@ride) %></td>
     </tr>
     <% end %>
 </table>
