@@ -3,8 +3,6 @@ class User < ApplicationRecord
     has_many :riders
     has_many :rides
     has_many :horses
+    validates_presence_of :username, :password, :name
 
-    def current_user
-        User.find_by(id: session[:user_id])
-    end
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "register", to: "users#new"
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
-  post "logout", to: "session#destroy"
+  get "logout", to: "sessions#destroy"
 
   get "/auth/google_oauth2/callback", to: "sessions#omniauth"
   

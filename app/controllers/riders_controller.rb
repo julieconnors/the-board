@@ -5,8 +5,8 @@ class RidersController < ApplicationController
     end
 
     def create
-        @rider = current_user.riders.build(rider_params)
-        @rider.save
+        rider = current_user.riders.build(rider_params)
+        helpers.rider_validation(rider)
 
         redirect_to user_path(current_user)
     end

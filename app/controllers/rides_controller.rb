@@ -6,6 +6,7 @@ class RidesController < ApplicationController
     def create
         @rider = Rider.find_by(id: params[:rider_id])
         @ride = @rider.rides.build(ride_params)
+        @ride.user_id = current_user
         @ride.save
         
         redirect_to rider_ride_path(@ride.rider_id, @ride)

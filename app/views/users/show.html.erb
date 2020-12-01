@@ -4,6 +4,9 @@
 <%= link_to rider.name, rider_path(rider) %><br>
 <% end %>
 <br>
+<% if flash[:error] %>
+    <p id="error"><%= flash[:error] %></p>
+<% end %>
 <%= form_for Rider.new, url: riders_path do |f| %>
 <%= f.text_field :name %>
 <%= f.submit "Add Rider"%>
