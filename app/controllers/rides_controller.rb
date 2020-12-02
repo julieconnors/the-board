@@ -6,7 +6,7 @@ class RidesController < ApplicationController
     def create
         @rider = Rider.find_by(id: params[:rider_id])
         @ride = @rider.rides.build(ride_params)
-        @ride.user_id = current_user
+        @ride.user_id = helpers.current_user.id
         @ride.save
         
         redirect_to rider_ride_path(@ride.rider_id, @ride)
@@ -15,6 +15,20 @@ class RidesController < ApplicationController
     def show
         @rider = Rider.find_by(id: params[:rider_id])
         @ride = Ride.find_by(id: params[:id])
+    end
+
+    def edit
+        @ride = Ride.find_by(params[:id])
+    end
+
+    def update
+        raise params.inspect
+    end
+
+    def destroy
+        byebug
+        Ride.find_by(params[:id]).destroy
+        redirect_to user_path(current_user)
     end
 
     private

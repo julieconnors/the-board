@@ -7,14 +7,12 @@
     <th>Date</th>
     <th>Time</th>
     <th>Horse</th>
-    <th>Location</th>
     <th>Notes</th>
     <% @rider.rides.each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
         <td><%= ride.horse.name %></td>
-        <td><%= ride.location %></td>
         <td><%= ride.notes %></td>
     </tr>
     <% end %>

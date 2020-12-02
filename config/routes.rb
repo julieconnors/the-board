@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   resources :riders do 
     resources :rides
+
   end
 
   resources :users

@@ -18,7 +18,6 @@
 <table>
     <th>Date</th>
     <th>Time</th>
-    <th>Location</th>
     <th>Horse</th>
     <th>Rider</th>
     <th>Notes</th>
@@ -26,11 +25,11 @@
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
-        <td><%= ride.location %></td>
         <td><%= ride.horse.name %></td>
         <td><%= ride.rider.name %></td>
         <td><%= ride.notes %></td>
-        <td><%#= link_to "Update", edit_rider_ride_path(@ride) %></td>
+        <td><%= link_to "Update", edit_rider_ride_path(ride) %></td>
+        <td><%= button_to "Cancel", rider_ride_path(ride), method: :delete %></td>
     </tr>
     <% end %>
 </table>

@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_11_28_104113) do
 
   create_table "rides", force: :cascade do |t|
     t.datetime "time"
-    t.string "location"
     t.text "notes"
     t.integer "horse_id"
     t.integer "rider_id"
