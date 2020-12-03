@@ -4,4 +4,8 @@ module UsersHelper
         # elsif 
         # end
     end
+
+    def user_error_generator
+        
+    end
 end
