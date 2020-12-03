@@ -1,13 +1,14 @@
 module RidesHelper
+
     def ride_validation(ride)
         if ride.valid?
             ride.save
 
-            redirect_to rider_ride_path(ride.rider_id)
+            redirect_to rider_ride_path(ride.rider_id, ride)
         else
             error_generator(ride)
 
-            redirect_to new_rider_ride_path(ride.rider_id)  #is looking for partial?
+            render :new
         end
     end
 
