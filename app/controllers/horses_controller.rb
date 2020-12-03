@@ -1,5 +1,6 @@
 class HorsesController < ApplicationController
-    
+    include HorsesHelper
+
     def index
     end
 
@@ -8,9 +9,8 @@ class HorsesController < ApplicationController
 
     def create
         horse = current_user.horses.build(horse_params)
-        horse.save
-
-        redirect_to horse_path(horse)
+        
+        horse_validation(horse)
     end
 
     def show
