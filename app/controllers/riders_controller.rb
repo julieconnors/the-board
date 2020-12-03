@@ -1,4 +1,5 @@
 class RidersController < ApplicationController
+    include RidersHelper
 
     def new
         @rider = Rider.new
@@ -6,7 +7,7 @@ class RidersController < ApplicationController
 
     def create
         rider = current_user.riders.build(rider_params)
-        helpers.rider_validation(rider)
+        rider_validation(rider)
 
         redirect_to user_path(current_user)
     end
