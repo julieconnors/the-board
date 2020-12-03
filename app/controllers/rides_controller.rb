@@ -29,12 +29,9 @@ class RidesController < ApplicationController
     end
 
     def destroy
-        #I need to find a way to find a ride by rider and ride id
-        #ride = Ride.where("rider_id = ? AND id = ?", params[:rider_id], params[:id])
-        
-        raise params.inspect
+        Ride.destroy(params[:id])
 
-        #redirect_to user_path(current_user)
+        redirect_to user_path(current_user)
     end
 
     private
