@@ -1,18 +1,16 @@
 class RidesController < ApplicationController
+    include RidesHelper
+
     def new
         @ride = Ride.new
     end
 
     def create
-        @rider = Rider.find_by(id: params[:rider_id])
-        @ride = @rider.rides.build(ride_params)
-        @ride.user_id = helpers.current_user.id
-        if @ride.ride_validation
-            redirect_to rider_ride_path(@ride.rider_id, @ride)            
-        else
-            helpers.error_generator(@ride)
-            render :new            
-        end
+        rider = Rider.find_by(id: params[:rider_id])
+        ride = rider.rides.build(ride_params)
+        ride.user_id = current_user.id
+
+        ride_validation(ride)
     end
 
     def show
