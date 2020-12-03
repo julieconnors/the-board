@@ -7,9 +7,12 @@ class RidesController < ApplicationController
         @rider = Rider.find_by(id: params[:rider_id])
         @ride = @rider.rides.build(ride_params)
         @ride.user_id = helpers.current_user.id
-        @ride.save
-        
-        redirect_to rider_ride_path(@ride.rider_id, @ride)
+        if @ride.ride_validation
+            redirect_to rider_ride_path(@ride.rider_id, @ride)            
+        else
+            helpers.error_generator(@ride)
+            render :new            
+        end
     end
 
     def show
@@ -23,12 +26,17 @@ class RidesController < ApplicationController
 
     def update
         raise params.inspect
+
+
     end
 
     def destroy
-        byebug
-        Ride.find_by(params[:id]).destroy
-        redirect_to user_path(current_user)
+        #I need to find a way to find a ride by rider and ride id
+        #ride = Ride.where("rider_id = ? AND id = ?", params[:rider_id], params[:id])
+        
+        raise params.inspect
+
+        #redirect_to user_path(current_user)
     end
 
     private

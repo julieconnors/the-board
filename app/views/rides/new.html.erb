@@ -1,8 +1,14 @@
 <%= form_for(@ride, url: rider_rides_path(params[:rider_id])) do |f| %>
 <%= f.label :horse_id %>
 <%= f.collection_select(:horse_id, Horse.all, :id, :name) %><br>
+    <% if flash[:day_error] %>
+        <p id="error"><%= flash[:day_error] %></p>
+    <% end %>
 <%= f.label :day %>
 <%= f.date_field :day %><br>
+    <% if flash[:time_error] %>
+        <p id="error"><%= flash[:time_error] %></p>
+    <% end %>
 <%= f.label :time%>
 <%= f.time_field :time %><br>
 <%= f.label :notes %>
