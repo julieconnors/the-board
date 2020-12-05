@@ -1,4 +1,4 @@
-<%= form_for(@ride, url: rider_rides_path(params[:rider_id])) do |f| %>
+<%= form_for @ride do |f| %>
 <%= f.label :horse_id %>
 <%= f.collection_select(:horse_id, Horse.all, :id, :name) %><br>
 <%= f.label :day %>
