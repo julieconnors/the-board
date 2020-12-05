@@ -1,0 +1,4 @@
+<% current_user.riders.each do |rider| %>
+<h2><%= rider.name %></h2>
+<%= link_to "View Rides", rider_rides_path(rider) %>
+<% end %>
