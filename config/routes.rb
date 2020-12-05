@@ -8,10 +8,9 @@ Rails.application.routes.draw do
   get "/auth/google_oauth2/callback", to: "sessions#omniauth"
   
   resources :riders do 
-    resources :rides
-
+    resources :rides, only: [:index, :new, :create]
   end
-
+  resources :rides
   resources :users
 
   resources :horses
