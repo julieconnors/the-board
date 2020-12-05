@@ -1,12 +1,14 @@
 
 - css id#error red
 
-- validations and error messages for horse, ride, user
+- validations and error messages for user
+
+- remove unused routes
 
 - edit rides  **debug form/path issue
 
-- create nested attributes??
+- create nested attributes for horse in ride creation form 
 
-
-- scope method - ride where type is show or training
-- scope method - rides by date
+- scope method  - rides by day
+                - rides by horse
+                - rides by rider
