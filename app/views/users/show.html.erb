@@ -13,7 +13,7 @@
 <% end %>
 <br>
 <%= link_to "All Horses", horses_path %>
-<%= link_to "Add Horses", new_horse_path %>
+<%= link_to "Add Horse", new_horse_path %>
 
 <h4>All Rides</h4>
 <table>
@@ -29,8 +29,8 @@
         <td><%= ride.horse.name %></td>
         <td><%= ride.rider.name %></td>
         <td><%= ride.notes %></td>
-        <td><%= link_to "Update", edit_rider_ride_path(ride.rider_id, ride.id) %></td>
-        <td><%= button_to "Cancel", rider_ride_path(ride.rider_id, ride.id), method: :delete %></td>
+        <td><%= link_to "Update", edit_ride_path(ride) %></td>
+        <td><%= button_to "Cancel", ride_path(ride), method: :delete %></td>
     </tr>
     <% end %>
 </table>
