@@ -12,9 +12,12 @@
     <% if logged_in? %>
     <%= link_to "Home", user_path(current_user) %>
     <%= link_to "Logout", logout_path %>
-      <%#= form_tag("/logout", method: "post") do %>
-        <%#= hidden_field_tag %>
-      <%# end %>
+    <%= link_to "All Rides", rides_path %>
+    <%= link_to "Rides By Rider", riders_path %>
+    <%= link_to "Rides By Horse", horses_path %>
+    <%#= link_to "Rides By Day", rides_path %>
+
+
 
     <% end %>
     <%= yield %>
