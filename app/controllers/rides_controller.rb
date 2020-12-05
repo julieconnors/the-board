@@ -19,13 +19,14 @@ class RidesController < ApplicationController
     end
 
     def edit
-        @ride = Ride.find_by(params[:id])
+        @ride = Ride.find_by(id: params[:id])
     end
 
     def update
-        raise params.inspect
-
-
+        @ride = Ride.find(params[:id])
+        @ride.update(day: params[:ride][:day], time: params[:ride][:time], notes: params[:ride][:notes])
+        #add validation
+        redirect_to user_path(current_user)
     end
 
     def destroy
