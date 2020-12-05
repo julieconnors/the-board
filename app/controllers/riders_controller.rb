@@ -1,6 +1,9 @@
 class RidersController < ApplicationController
     include RidersHelper
 
+    def index
+    end
+    
     def new
         @rider = Rider.new
     end
