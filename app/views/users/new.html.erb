@@ -1,9 +1,18 @@
 <h1>Register</h1>
 <%= form_for @user do |f| %>
+<% if flash[:name_error] %>
+<p><%= flash[:name_error] %></p>
+<% end %>
 <%= f.label :name %>
 <%= f.text_field :name %><br>
+<% if flash[:email_error] %>
+<p><%= flash[:email_error] %></p>
+<% end %>
 <%= f.label :email %>
 <%= f.text_field :email %><br>
+<% if flash[:password_error] %>
+<p><%= flash[:password_error] %></p>
+<% end %>
 <%= f.label :password %>
 <%= f.password_field :password %><br>
 <%= f.submit "Register"%>
