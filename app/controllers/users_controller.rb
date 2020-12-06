@@ -1,19 +1,14 @@
 class UsersController < ApplicationController
+    include UsersHelper
+    
     def new
         @user = User.new
     end
 
     def create
-
         @user = User.new(user_params)
-        raise params.inspect
-        if @user.save
-            session[:user_id] = @user.id
 
-            redirect_to user_path(@user)
-        else 
-            redirect_to "/register"
-        end
+        user_validation(@user)
     end
 
     def show
