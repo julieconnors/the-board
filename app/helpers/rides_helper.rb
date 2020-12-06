@@ -4,7 +4,7 @@ module RidesHelper
         if ride.valid?
             ride.save
 
-            redirect_to rider_ride_path(ride.rider_id, ride)
+            redirect_to user_path(current_user)
         else
             error_generator(ride)
 
@@ -19,5 +19,17 @@ module RidesHelper
         if ride.day == nil
             flash[:day_error] = "Please select a date"
         end
+    end
+
+    def sort_rides
+        current_user.rides.order(:day)
+    end
+
+    def rides_by_date
+    #     if !@rides.empty?
+    #          @rides.each do |ride|
+    #             ride.name
+    #          end
+    #     end
     end
 end
