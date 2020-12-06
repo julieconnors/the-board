@@ -1,4 +1,17 @@
 <% current_user.riders.each do |rider| %>
 <h2><%= rider.name %></h2>
-<%= link_to "View Rides", rider_rides_path(rider) %>
+<table>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Horse</th>
+    <th>Notes</th>
+    <% rider.rides.each do |ride| %>
+    <tr>
+        <td><%= ride.format_date %></td>
+        <td><%= ride.format_time %></td>
+        <td><%= ride.horse.name %></td>
+        <td><%= ride.notes %></td>
+    </tr>
+    <% end %>
+</table>
 <% end %>
