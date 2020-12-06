@@ -35,6 +35,16 @@ class RidesController < ApplicationController
         redirect_to user_path(current_user)
     end
 
+    def calendar
+        @rides = ""
+    end
+
+    def date
+        @rides = current_user.rides.where("day = ?", params[:day])
+
+        render :calendar
+    end
+
     private
 
     def ride_params
