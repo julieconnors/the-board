@@ -5,10 +5,6 @@
 
 - remove unused routes
 
-- edit rides  **debug form/path issue
-
 - create nested attributes for horse in ride creation form 
 
-- scope method  - rides by day
-                - rides by horse
-                - rides by rider
+- partial for rides table?
