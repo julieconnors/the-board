@@ -1,0 +1,14 @@
+<%= form_tag ride_by_date_path do %>
+<%= date_field_tag :day %>
+<%= submit_tag "Find Rides"%>
+<% end %>
+
+<% if @rides != "" %>
+    <h3><%= params[:day] %></h3>
+
+    <% @rides.each do |ride| %>
+
+    <%= ride.rider.name %>
+    <%= ride.time %>
+    <% end %>
+<% end %>
