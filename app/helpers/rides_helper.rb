@@ -25,11 +25,15 @@ module RidesHelper
         current_user.rides.order(:day)
     end
 
-    def rides_by_date
-    #     if !@rides.empty?
-    #          @rides.each do |ride|
-    #             ride.name
-    #          end
-    #     end
+    def sort_rider_rides(rider)
+        rider.rides.order(:day)
+    end
+
+    def sort_horse_rides(horse)
+        horse.rides.order(:day)
+    end
+
+    def format_date_from_params(params)
+        params[:day].to_date.strftime('%-m/%d/%y')
     end
 end
