@@ -1,21 +1,14 @@
+<h3>All Riders</h3>
 <% current_user.riders.each do |rider| %>
-<h3><%= rider.name %></h3>
-    <%= link_to "Schedule Ride", new_rider_ride_path(rider)%>
-<br>
-<table>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Horse</th>
-    <th>Notes</th>
-    <% sort_rider_rides(rider).each do |ride| %>
-    <tr>
-        <td><%= ride.format_date %></td>
-        <td><%= ride.format_time %></td>
-        <td><%= link_to ride.horse.name, horse_path(ride.horse) %></td>
-        <td><%= ride.notes %></td>
-    </tr>
-    <% end %>
-</table>
-<br>
+<p><%= rider.name %> - <%= link_to "View Ride Schedule", rider_rides_path(rider)%></p>
+    <%#= link_to "Schedule Ride", new_rider_ride_path(rider)%>
+<% end %>
 
+<h3>Add Rider</h3>
+<% if flash[:error] %>
+    <p id="error"><%= flash[:error] %></p>
+<% end %>
+<%= form_for Rider.new, url: riders_path do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add Rider"%>
 <% end %>
