@@ -1,0 +1,8 @@
+<h3>Edit Rider</h3>
+<% if flash[:error] %>
+<p><%= flash[:error] %></p>
+<% end %>
+<%= form_for @rider do |f| %>
+<%= f.text_field :name %><br>
+<%= f.submit "Update" %>
+<% end %>
