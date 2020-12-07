@@ -12,8 +12,8 @@
     <% if logged_in? %>
       <%= link_to "Home", user_path(current_user) %>
       <%= link_to "Logout", logout_path %>
-      <%= link_to "Rides By Rider", riders_path %>
-      <%= link_to "Rides By Horse", horses_path %>
+      <%= link_to "Riders", riders_path %>
+      <%= link_to "Horses", horses_path %>
       <%= link_to "Rides By Day", ride_calendar_path %>
     <% end %>
     <%= yield %>
