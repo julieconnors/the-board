@@ -1,8 +1,9 @@
-<h3>Select or Add Rider to Schedule Ride</h3>
-<h4>Riders</h4>
+<h3>Select Rider to Schedule Ride</h3>
 <% current_user.riders.each do |rider|%>
 <%= link_to rider.name, rider_path(rider) %><br>
 <% end %>
+
+
 <br>
 <% if flash[:error] %>
     <p id="error"><%= flash[:error] %></p>
