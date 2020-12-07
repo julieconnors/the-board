@@ -1,16 +1,19 @@
+<h3>All Rides</h3>
 <table>
     <th>Date</th>
     <th>Time</th>
-    <th>Horse</th>
     <th>Rider</th>
+    <th>Horse</th>
     <th>Notes</th>
-    <% current_user.rides.each do |ride| %>
+    <% sort_rider_rides(@rider).each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
-        <td><%= link_to ride.horse.name, horse_path(ride.horse) %></td>
         <td><%= link_to ride.rider.name, rider_path(ride.rider) %></td>
+        <td><%= link_to ride.horse.name, horse_path(ride.horse) %></td>
         <td><%= ride.notes %></td>
+        <td><%= link_to "Update", edit_ride_path(ride) %></td>
+        <td><%= button_to "Cancel", ride_path(ride), method: :delete %></td>
     </tr>
     <% end %>
 </table>
