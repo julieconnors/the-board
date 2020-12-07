@@ -1,12 +1,14 @@
-<h2>View Rides By Horse</h2>
 <table>
+<h3>All Horses</h3>
 <th>Horse</th>
 <th>Owner</th>
 <% current_user.horses.each do |horse| %>
 <tr>
-<td><%= link_to horse.name, horse_path(horse) %></td> 
+<td><%= horse.name %></td> 
 <td><%= horse.owner %></td>
-<td><%= %>
+<td><%= link_to "View Ride Schedule", horse_path(horse) %>
+
+
 </tr>
 <% end %>
 </table>
