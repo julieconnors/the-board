@@ -1,6 +1,10 @@
 class RidesController < ApplicationController
     include RidesHelper
 
+    def index
+        @rider = Rider.find_by(id: params[:rider_id])
+    end
+
     def new
         @ride = Ride.new
     end
@@ -14,7 +18,6 @@ class RidesController < ApplicationController
     end
 
     def show
-        @rider = Rider.find_by(id: params[:rider_id])
         @ride = Ride.find_by(id: params[:id])
     end
 
