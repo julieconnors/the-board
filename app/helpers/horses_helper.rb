@@ -3,11 +3,23 @@ module HorsesHelper
         if horse.valid?
             horse.save
 
-            redirect_to horse_path(horse)
+            redirect_to horses_path
         else
             horse_error_generator(horse)
 
             render :new
+        end
+    end
+
+    def edit_horse_validation(horse)
+        if horse.valid?
+            horse.save
+
+            redirect_to horses_path
+        else
+            horse_error_generator(horse)
+
+            render :edit
         end
     end
 
@@ -18,5 +30,9 @@ module HorsesHelper
         if horse.owner == ""
             flash[:owner_error] = "Please add owner name"
         end
+    end
+
+    def sort_horse_rides
+        #self.
     end
 end
