@@ -1,3 +1,4 @@
+<h2>View Rides By Horse</h2>
 <table>
 <th>Horse</th>
 <th>Owner</th>
@@ -5,6 +6,9 @@
 <tr>
 <td><%= link_to horse.name, horse_path(horse) %></td> 
 <td><%= horse.owner %></td>
+<td><%= %>
 </tr>
 <% end %>
 </table>
+<br>
+<%= link_to "Add Horse", new_horse_path %>
