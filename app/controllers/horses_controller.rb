@@ -13,8 +13,26 @@ class HorsesController < ApplicationController
         horse_validation(horse)
     end
 
+    def edit
+        @horse = Horse.find_by(id: params[:id])
+    end
+
+    def update
+        @horse = Horse.find_by(id: params[:id])
+        @horse.update(name: params[:horse][:name], owner: params[:horse][:owner])
+    
+        edit_horse_validation(@horse)
+        #redirect_to horses_path
+    end
+
     def show
         @horse = Horse.find(params[:id])
+    end
+
+    def destroy
+        Horse.destroy(params[:id])
+
+        redirect_to horses_path
     end
 
     private
