@@ -1,19 +1,7 @@
-<h2><%= @rider.name %></h2>
-<%= link_to "Schedule Ride", new_rider_ride_path(@rider)%>
+<p><%= @rider.name %> - <%= link_to "Edit Rider", edit_rider_path(@rider)%></p> 
 
-<h3>All Rides</h3>
+<%= link_to "View Ride Schedule", rider_rides_path(@rider)%>
 
-<table>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Horse</th>
-    <th>Notes</th>
-    <% sort_rider_rides(@rider).each do |ride| %>
-    <tr>
-        <td><%= ride.format_date %></td>
-        <td><%= ride.format_time %></td>
-        <td><%= link_to ride.horse.name, horse_path(ride.horse) %></td>
-        <td><%= ride.notes %></td>
-    </tr>
-    <% end %>
-</table>
+<%= link_to "Schedule New Ride", new_rider_ride_path(@rider)%>
+<br><br>
+<%= button_to "Remove Rider", rider_path(@rider), method: :delete %>
