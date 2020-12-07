@@ -1,17 +1,16 @@
 <h2><%= @horse.name %></h2>
-Owner: <%= @horse.owner %>
-<h3>All Rides</h3>
+<h4>Owner: <%= @horse.owner %></h4>
 
 <table>
     <th>Date</th>
     <th>Time</th>
     <th>Rider</th>
     <th>Notes</th>
-    <% @horse.rides.each do |ride| %>
+    <% sort_horse_rides(@horse).each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
-        <td><%= ride.rider.name %></td>
+        <td><%= link_to ride.rider.name, rider_path(ride.rider) %></td>
         <td><%= ride.notes %></td>
     </tr>
     <% end %>
