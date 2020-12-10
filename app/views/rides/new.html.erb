@@ -1,17 +1,29 @@
 <%= form_for(@ride, url: rider_rides_path(params[:rider_id])) do |f| %>
-<%= f.label :horse_id %>
+<%= f.label "Select a horse:" %>
 <%= f.collection_select(:horse_id, Horse.all, :id, :name) %><br>
+    <%#= f.fields_for :horse, @ride.build_horse do |h| %>
+        <%#= h.label :name %>
+        <%#= h.text_field :name %><br>
+        <%#= h.label :owner %>
+        <%#= h.text_field :owner %>
+    <%# end%>
+    <br>
+    <br>
     <% if flash[:day_error] %>
         <p id="error"><%= flash[:day_error] %></p>
     <% end %>
+
 <%= f.label :day %>
 <%= f.date_field :day %><br>
     <% if flash[:time_error] %>
         <p id="error"><%= flash[:time_error] %></p>
     <% end %>
+
 <%= f.label :time%>
 <%= f.time_field :time %><br>
+
 <%= f.label :notes %>
 <%= f.text_area :notes %><br>
+
 <%= f.submit "Add Ride" %>
 <% end %>
