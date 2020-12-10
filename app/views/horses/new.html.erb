@@ -13,12 +13,12 @@
 <h3>New Horse</h3>
 <%= form_for Horse.new, url: horses_path do |f| %>
     <% if flash[:name_error] %>
-        <p><%= flash[:name_error] %></p>
+        <p id="error"><%= flash[:name_error] %></p>
     <% end %>
 <%= f.label :name %>
 <%= f.text_field :name  %><br>
     <% if flash[:owner_error] %>
-        <p><%= flash[:owner_error] %></p>
+        <p id="error"><%= flash[:owner_error] %></p>
     <% end %>
 <%= f.label :owner %>
 <%= f.text_field :owner  %><br>
