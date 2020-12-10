@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     end
 
     def show
+        if params[:day] == nil
+            @rides = ""
+        else
+            @rides = current_user.rides.where("day = ?", params[:day])
+        end
     end
 
     private
