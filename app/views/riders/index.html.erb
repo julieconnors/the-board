@@ -1,7 +1,6 @@
 <h3>All Riders</h3>
 <% current_user.riders.each do |rider| %>
-<p><%= rider.name %> - <%= link_to "View Ride Schedule", rider_rides_path(rider)%></p>
-    <%#= link_to "Schedule Ride", new_rider_ride_path(rider)%>
+    <p><%= link_to rider.name, rider_path(rider)%></p>
 <% end %>
 
 <h3>Add Rider</h3>
