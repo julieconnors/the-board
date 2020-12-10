@@ -10,7 +10,7 @@ class RidesController < ApplicationController
     end
 
     def create
-        rider = Rider.find_by(id: params[:rider_id])
+        rider = Rider.find(params[:rider_id])
         ride = rider.rides.build(ride_params)
         ride.user_id = current_user.id
 
@@ -51,6 +51,6 @@ class RidesController < ApplicationController
     private
 
     def ride_params
-        params.require(:ride).permit(:location, :notes, :time, :rider_id, :horse_id, :day)
+        params.require(:ride).permit(:notes, :time, :rider_id, :horse_id, :day, :horse_attributes => [:id, :name, :owner])
     end
 end
