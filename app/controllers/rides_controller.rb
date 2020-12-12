@@ -26,26 +26,16 @@ class RidesController < ApplicationController
     end
 
     def update
-        @ride = Ride.find(params[:id])
-        @ride.update(day: params[:ride][:day], time: params[:ride][:time], notes: params[:ride][:notes])
-        #add validation
-        redirect_to user_path(current_user)
+        ride = Ride.find(params[:id])
+        ride.update(day: params[:ride][:day], time: params[:ride][:time], notes: params[:ride][:notes])
+        
+        update_ride_validation(ride)
     end
 
     def destroy
         Ride.destroy(params[:id])
 
         redirect_to user_path(current_user)
-    end
-
-    def calendar
-        @rides = ""
-    end
-
-    def date
-        @rides = current_user.rides.where("day = ?", params[:day])
-
-        render :calendar
     end
 
     private
