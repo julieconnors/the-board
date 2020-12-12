@@ -1,35 +1,26 @@
 <h3>Select Rider to Schedule Ride</h3>
 <% current_user.riders.each do |rider|%>
-<%= link_to rider.name, rider_path(rider) %><br>
+<strong><%= link_to rider.name, rider_path(rider) %><br></strong>
 <% end %>
 
-
-<br>
-<% if flash[:error] %>
-    <p id="error"><%= flash[:error] %></p>
-<% end %>
-<%= form_for Rider.new, url: riders_path do |f| %>
-<%= f.text_field :name %>
-<%= f.submit "Add Rider"%>
-<% end %>
-<br>
+<p style="text-decoration: underline; color: purple;"><%= link_to "Add Rider", riders_path %></p>
 
 <h3>Today's Rides</h3>
-<table>
+<table class="board">
     <th>Date</th>
     <th>Time</th>
-    <th>Horse</th>
     <th>Rider</th>
+    <th>Horse</th>
     <th>Notes</th>
     <% todays_rides.each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
-        <td><%= ride.horse.name %></td>
         <td><%= ride.rider.name %></td>
+        <td><%= ride.horse.name %></td>
         <td><%= ride.notes %></td>
         <td><%= link_to "Update", edit_ride_path(ride) %></td>
-        <td><%= button_to "Cancel", ride_path(ride), method: :delete %></td>
+        <td><%= button_to "Cancel", ride_path(ride), method: :delete, id: "submit"%></td>
     </tr>
     <% end %>
 </table>
@@ -42,7 +33,7 @@
 
 <% if @rides != "" %>
     <h3><%= format_date_from_params(params) %></h3>
-    <table>
+    <table class="board">
     <th>Time</th>
     <th>Rider</th>
     <th>Horse</th>
