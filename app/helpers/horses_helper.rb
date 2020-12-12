@@ -7,7 +7,7 @@ module HorsesHelper
         else
             horse_error_generator(horse)
 
-            render :new
+            redirect_to horses_path
         end
     end
 
