@@ -12,7 +12,7 @@ module RidesHelper
         end
     end
 
-    def update_ride_validation
+    def update_ride_validation(ride)
         if ride.valid?
             ride.save
 
@@ -51,5 +51,17 @@ module RidesHelper
 
     def todays_rides
         current_user.rides.where("day = ?", Date.today)
+    end
+
+    def todays_rider_rides(rider)
+        rider.rides.where("day = ?", Date.today)
+    end
+
+    def ride_calendar
+        if params[:day] == nil
+            @rides = ""
+        else
+            @rides = current_user.rides.where("day = ?", params[:day])
+        end
     end
 end
