@@ -1,14 +1,28 @@
-<p><%= @rider.name %> - <%= link_to "Edit Rider", edit_rider_path(@rider)%></p> 
+<h3><%= @rider.name %></h3>
+<%= link_to "Edit Rider", edit_rider_path(@rider)%>
+<%= button_to "Remove Rider", rider_path(@rider), method: :delete %>
 
-<%= link_to "View Ride Schedule", rider_rides_path(@rider)%>
+<h3>Today's Rides</h3>
+<table class="board">
+    <th>Time</th>
+    <th>Horse</th>
+    <th>Notes</th>
+<% todays_rider_rides(@rider).each do |ride| %>
+    <tr>
+        <td><%= ride.format_time %></td>
+        <td><%= ride.horse.name %></td>
+        <td><%= ride.notes %></td>
+    </tr>
+    <% end %>
+    </table>
 
-<p>Horses <%= @rider.name %> is riding:</p>
+<h4>Horses <%= @rider.name %> rides:</h4>
 <% @rider.horses.uniq.each do |horse| %>
 <ul>
-<li><%= link_to horse.name, horse_path(horse) %></li>
+<li id="horse"><%= link_to horse.name, horse_path(horse) %></li>
 </ul>
 <% end %>
 
-<%= link_to "Schedule New Ride", new_rider_ride_path(@rider)%>
-<br><br>
-<%= button_to "Remove Rider", rider_path(@rider), method: :delete %>
+<p><%= link_to "View Complete Ride Schedule", rider_rides_path(@rider)%></p>   
+<p>- OR -</p>   
+<p><%= link_to "Schedule New Ride", new_rider_ride_path(@rider)%></p>
