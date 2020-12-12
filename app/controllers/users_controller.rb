@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     include UsersHelper
+    include RidesHelper
     
     def new
         @user = User.new
@@ -12,11 +13,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        if params[:day] == nil
-            @rides = ""
-        else
-            @rides = current_user.rides.where("day = ?", params[:day])
-        end
+        ride_calendar
     end
 
     private
