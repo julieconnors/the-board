@@ -1,10 +1,10 @@
-<table>
+<table class="show">
 <h3>All Horses</h3>
 <th>Horse</th>
 <th>Owner</th>
 <% current_user.horses.each do |horse| %>
 <tr>
-<td><%= link_to horse.name, horse_path(horse) %></td> 
+<td><strong><%= link_to horse.name, horse_path(horse.id) %></strong></td> 
 <td><%= horse.owner %></td>
 
 
