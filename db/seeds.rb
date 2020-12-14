@@ -12,8 +12,7 @@ Rider.create(name: "Jenny Hannon", user_id: 1)
 Rider.create(name: "Katie Strandberg", user_id: 1)
 Rider.create(name: "Jane Fischer", user_id: 1)
 
-Horse.create(name: "Olympic Fire", owner: "Ocean Echo Farm", user_id: 1)
-Horse.create(name: "Mindful", owner: "Selma Garber", user_id: 1)
-Horse.create(name: "Corice Z", owner: "Claire Kenna", user_id: 1)
-Horse.create(name: "Varsity", owner: "Jane Fischer", user_id: 1)
+Horse.create(name: "Olympic Fire", owner: "Ocean Echo Farm", nickname: "Ollie", user_id: 1)
+Horse.create(name: "Corice Z", owner: "Claire Kenna", nickname: "Corice", user_id: 1)
+Horse.create(name: "Varsity", owner: "Jane Fischer", nickname: "Justin", user_id: 1)
 
