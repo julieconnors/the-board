@@ -1,0 +1,13 @@
+<h3>Add Rider</h3>
+    <% if @rider.errors.any? %>
+    <div id="error">
+        <% @rider.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+    <% end %>
+
+    <%= form_for @rider, url: riders_path do |f| %>
+        <%= f.text_field :name %>
+        <%= f.submit "Add Rider"%>
+    <% end %>
