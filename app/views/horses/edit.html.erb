@@ -5,6 +5,11 @@
     <% end %>
 <%= f.label :name %>
 <%= f.text_field :name  %><br>
+    <% if flash[:nickname_error] %>
+        <p><%= flash[:nickname_error] %></p>
+    <% end %>
+<%= f.label :nickname %>
+<%= f.text_field :nickname  %><br>
     <% if flash[:owner_error] %>
         <p><%= flash[:owner_error] %></p>
     <% end %>
