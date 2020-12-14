@@ -1,5 +1,5 @@
 <h3><%= @rider.name %></h3>
-<%= link_to "Edit Rider", edit_rider_path(@rider)%>
+<p id="link"><%= link_to "Edit Rider", edit_rider_path(@rider)%></p>
 <%= button_to "Remove Rider", rider_path(@rider), method: :delete %>
 
 <h3>Today's Rides</h3>
