@@ -1,9 +1,9 @@
 <h3>Select Rider to Schedule Ride</h3>
-<% current_user.riders.each do |rider|%>
-<strong><%= link_to rider.name, rider_path(rider) %><br></strong>
-<% end %>
+    <% current_user.riders.each do |rider|%>
+        <p><%= link_to rider.name, rider_path(rider) %></p>
+    <% end %>
 
-<p style="text-decoration: underline; color: purple;"><%= link_to "Add Rider", riders_path %></p>
+<p id="link"><%= link_to "Add Rider", new_rider_path %></p>
 
 <h3>Today's Rides</h3>
 <table class="board">
@@ -16,8 +16,8 @@
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
-        <td><%= ride.rider.name %></td>
-        <td><%= ride.horse.name %></td>
+        <td><%= link_to ride.rider.name, rider_path(ride.rider) %></td>
+        <td><%= link_to ride.horse.name, horse_path(ride.horse) %></td>
         <td><%= ride.notes %></td>
         <td><%= link_to "Update", edit_ride_path(ride) %></td>
         <td><%= button_to "Cancel", ride_path(ride), method: :delete, id: "submit"%></td>
