@@ -6,14 +6,15 @@
 <br><br>
 <%= button_to "Remove Horse", horse_path(@horse), method: :delete %>
 </div>
-<h3><%= @horse.name %>'s Riders:</h3>
+<h3><%= @horse.nickname %>'s Riders:</h3>
     <% @horse.riders.uniq.each do |rider| %>
     <ul>
         <li><%= link_to rider.name, rider_path(rider) %></li>
-    <% end %>
     </ul>
+        <% end %>
 
-<h3><%= @horse.name %>'s Ride Schedule:</h3>
+
+<h3><%= @horse.nickname %>'s Ride Schedule:</h3>
 
 <table class="board">
     <th>Date</th>
