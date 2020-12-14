@@ -2,15 +2,17 @@ class HorsesController < ApplicationController
     include HorsesHelper
 
     def index
+        @horse = Horse.new
     end
 
     def new
+        @horse = Horse.new
     end
 
     def create
-        horse = current_user.horses.build(horse_params)
-        
-        horse_validation(horse)
+        @horse = current_user.horses.build(horse_params)
+
+        horse_validation(@horse)
     end
 
     def edit
@@ -19,10 +21,9 @@ class HorsesController < ApplicationController
 
     def update
         @horse = Horse.find_by(id: params[:id])
-        @horse.update(name: params[:horse][:name], owner: params[:horse][:owner])
+        @horse.update(name: params[:horse][:name], owner: params[:horse][:owner], nickname: params[:horse][:nickname])
     
         edit_horse_validation(@horse)
-        #redirect_to horses_path
     end
 
     def show
@@ -38,6 +39,6 @@ class HorsesController < ApplicationController
     private
 
     def horse_params
-        params.require(:horse).permit(:name, :owner)
+        params.require(:horse).permit(:name, :owner, :nickname)
     end
 end
