@@ -11,10 +11,10 @@ class RidesController < ApplicationController
 
     def create
         rider = Rider.find(params[:rider_id])
-        ride = rider.rides.build(ride_params)
-        ride.user_id = current_user.id
+        @ride = rider.rides.build(ride_params)
+        @ride.user_id = current_user.id
 
-        ride_validation(ride)
+        ride_validation(@ride)
     end
 
     def show
