@@ -10,7 +10,7 @@ module ApplicationHelper
 
     def logged_out_redirection #checks if a user is not logged in and redirects to login page
         if !logged_in?
-          redirect_to root
+          redirect_to root_path
         end
     end
 end
