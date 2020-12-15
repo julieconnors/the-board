@@ -1,0 +1,23 @@
+<% if @horse.errors.any? %>
+    <div class="error">
+        <% @horse.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+    <% end %>
+
+<%= form_for @horse do |f| %>
+    
+<div class="field<%= ' field_with_errors' if @horse.errors[:name].any? %>">
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+</div>
+    
+<%= f.label :nickname %>
+<%= f.text_field :nickname  %><br>
+    
+<%= f.label :owner %>
+<%= f.text_field :owner  %><br>
+
+<%= f.submit "Submit"%>
+<% end %>

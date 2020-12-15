@@ -1,0 +1,17 @@
+<% if @rider.errors.any? %>
+    <div class="error">
+        <% @rider.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+    <% end %>
+
+    <%= form_for @rider, url: riders_path do |f| %>
+
+    <div class="field<%= ' field_with_errors' if @rider.errors[:name].any? %>">
+        <%= f.label :name %>
+        <%= f.text_field :name %><br>
+    </div>
+
+        <%= f.submit "Submit"%>
+    <% end %>

@@ -1,0 +1,25 @@
+<% if @ride.errors.any? %>
+    <div class="error">
+    <% @ride.errors.full_messages.each do |message|%>
+        <p><%= message %></p>
+    <% end %>
+    </div>
+    <% end %>
+
+<%= form_for(@ride, url: rider_rides_path(params[:rider_id])) do |f| %>
+    <%= f.label "Select a horse:" %>
+    <%= f.collection_select(:horse_id, current_user.horses, :id, :name) %><br>
+
+    <p id="link"><%= link_to "Add Horse", new_horse_path%></p>
+
+    <%= f.label :day %>
+    <%= f.date_field :day %><br>
+
+    <%= f.label :time%>
+    <%= f.time_field :time %><br>
+
+    <%= f.label :notes %>
+    <%= f.text_area :notes %><br>
+
+    <%= f.submit "Submit" %>
+    <% end %>
