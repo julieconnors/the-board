@@ -1,9 +1,9 @@
-- partial for rides table?
-- partial for new and edit forms
+- refactor logic in session controller
+- welcome page
+- redirect if not logged_in
 
-- update errors to use fields with errors
-** make sure all error messages have error id
+blog
+video
 
 - Readme
-- license
 
