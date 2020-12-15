@@ -30,6 +30,7 @@ body {
     text-align: center;
     margin-left: 15%;
     margin-right: 15%;
+    margin-top: 2%;
     width: 70%;
 }
 
@@ -83,21 +84,34 @@ table.show {
 
 th {
     height: 50px;
+    text-decoration: underline;
  }
 
-#error {
+.error {
     color: red;
     font-size: 14px;
 }
 
 #info {
-    border: 2px solid gray; 
+    border: 1px solid gray; 
     background-color: snow;
     width: 50%;
     text-align: center;
     margin-left: 25%;
     margin-right: 25%;
     padding-bottom: 2%;
+}
+
+.display {
+    border: 1px solid gray; 
+    background-color: snow;
+    width: 40%;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 2%;
+    padding-bottom: 1%;
+    padding-top: 1%;
 }
 
 #link a:link {
