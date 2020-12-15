@@ -1,7 +1,29 @@
-<%= form_tag do %>
-<%= label_tag :email %>
-<%= text_field_tag :email %><br>
-<%= label_tag :password %>
-<%= password_field_tag :password %><br>
-<%= submit_tag "Login"%>
+<% if !@user.errors.empty? %>
+    <div class="error">
+    <% if !@user.errors.messages[:email].empty? %>
+        <p><%= @user.errors.messages[:email] %></p>
+    <% elsif !@user.errors.messages[:password].empty? %>
+        <p><%= @user.errors.messages[:password] %></p>
+    <% end %>
+    </div>
 <% end %>
+
+<div class="display">
+
+    <%= form_tag do %>
+    <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+        <%= f.label :name %>
+        <%= f.text_field :name %><br>
+    </div>
+    
+    <div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
+        <%= label_tag :email %>
+        <%= text_field_tag :email %><br>
+    </div>
+        
+        <%= label_tag :password %>
+        <%= password_field_tag :password %><br>
+        
+        <%= submit_tag "Login"%>
+    <% end %>
+<div>
