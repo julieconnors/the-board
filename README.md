@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Board
 
-Things you may want to cover:
+The Board is a scheduler for horse stables to keep track of its horses and riders training schedules.
 
-* Ruby version
+Installation:
+run bundle install
 
-* System dependencies
+Usage:
+run rails s
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License:
+MIT
