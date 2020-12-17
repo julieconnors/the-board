@@ -1,5 +1,5 @@
 <h2><%= @horse.name %></h2>
-<div id = "info">
+<div class="info">
 <h4>Owner: <%= @horse.owner %></h4>
 
 <%= link_to "Edit Horse Info", edit_horse_path(@horse) %>
@@ -12,7 +12,6 @@
         <li><%= link_to rider.name, rider_path(rider) %></li>
     </ul>
         <% end %>
-
 
 <h3><%= @horse.nickname %>'s Ride Schedule:</h3>
 
