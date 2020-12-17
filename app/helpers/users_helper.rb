@@ -34,4 +34,12 @@ module UsersHelper
             render :new
         end
     end
+
+    def user_ride_calendar
+        if params[:day] == nil
+            @rides = ""
+        else
+            @rides = current_user.rides.where("day = ?", params[:day])
+        end
+    end
 end
