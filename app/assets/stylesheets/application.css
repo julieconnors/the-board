@@ -43,7 +43,7 @@ nav a:link {
      text-decoration: none;
      margin: 30px;
      font-weight: bold;
-     color: brown;
+     color: black;
  }
 
 a:link { 
@@ -92,7 +92,7 @@ th {
     font-size: 14px;
 }
 
-#info {
+.info {
     border: 1px solid gray; 
     background-color: snow;
     width: 50%;
@@ -119,3 +119,12 @@ th {
     text-decoration: underline;
 }
 
+img {
+    width: 600px;
+    height: 400px;
+}
+
+#title {
+    font-family: Kalam;
+    font-size: 48px;
+}
