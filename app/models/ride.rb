@@ -10,7 +10,7 @@ class Ride < ApplicationRecord
     end
 
     def format_time
-        self.time.strftime('%l:%M')
+        self.time.strftime('%l:%M %p')
     end
 
     # def horse_attributes=(horse_attributes)
