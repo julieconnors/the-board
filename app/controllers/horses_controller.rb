@@ -32,6 +32,8 @@ class HorsesController < ApplicationController
     end
 
     def destroy
+        horse = Horse.find(params[:id])
+        horse.rides.map{|ride| ride.destroy }
         Horse.destroy(params[:id])
 
         redirect_to horses_path

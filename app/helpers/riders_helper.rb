@@ -3,7 +3,7 @@ module RidersHelper
         if rider.valid?
             rider.save
 
-            redirect_to riders_path
+            redirect_to rider_path(rider)
         else
             render :new
         end

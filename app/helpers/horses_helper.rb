@@ -18,4 +18,13 @@ module HorsesHelper
             render :edit
         end
     end
+
+    def horse_ride_calendar
+        raise params.inspect
+        if params[:day] == nil
+            @rides = ""
+        else
+            #@rides = .rides.where("day = ?", params[:day])
+        end
+    end
 end
