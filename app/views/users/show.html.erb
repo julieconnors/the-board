@@ -1,15 +1,3 @@
-<h3>Select Rider to Schedule Ride</h3>
-    <div class="display">
-        <p class="error"><%= has_riders %></p>
-
-        <% current_user.riders.each do |rider|%>
-            <p><%= link_to rider.name, rider_path(rider) %></p>
-        <% end %>
-    </div>
-
-    <p id="link"><%= link_to "Add Rider", new_rider_path %></p>
-
-
 <h3>Today's Rides</h3>
 <table class="board">
     <th>Date</th>
@@ -30,30 +18,19 @@
     <% end %>
 </table>
 
-<h3>Find Rides By Date</h3>
-<%= form_tag ride_by_date_path do %>
-<%= date_field_tag :day %>
-<%= submit_tag "Find Rides"%>
-<% end %>
+<div class="display">
 
-<% if @rides != "" %>
-    <h3><%= format_date_from_params(params) %></h3>
-    <table class="board">
-    <th>Time</th>
-    <th>Rider</th>
-    <th>Horse</th>
-    <th>Notes</th>
+<h3>Select Rider to Schedule Ride</h3>
 
-    <% @rides.each do |ride| %>
-        <tr>
-        <td><%= ride.format_time %></td>
-        <td><%= ride.rider.name %></td>
-        <td><%= ride.horse.name %></td>
-        <td><%= ride.notes %></td>
-        <td><%= link_to "Update", edit_ride_path(ride) %></td>
-        <td><%= button_to "Cancel", ride_path(ride), method: :delete %></td>
-        </tr>
-    <% end %>
-    </table>
-<% end %>
+    <div class="error"><%= has_riders %></div>
+
+        <% current_user.riders.each do |rider|%>
+            <%= link_to rider.name, rider_path(rider) %><br>
+        <% end %>
+
+        <p id="link"><%= link_to "Add Rider", new_rider_path %></p>
+    </div>
+
+
+
 
