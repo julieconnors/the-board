@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    include UsersHelper
 
     def new
         @user = User.new
@@ -7,23 +8,7 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(email: params[:email])
             
-            if @user.nil?
-                @user = User.new
-                @user.valid?
-                @user.errors.messages[:email] = "We could not find an account under that email"
-
-                render :new
-            else
-                if @user.authenticate(params[:password])
-                    session[:user_id] = @user.id
-
-                    redirect_to user_path(@user)
-                else
-                    @user.errors.messages[:password] = "Incorrect password"
-                    
-                    render :new
-                end
-            end
+        find_user(@user)
     end
 
     def destroy
