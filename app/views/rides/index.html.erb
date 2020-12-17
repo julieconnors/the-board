@@ -5,11 +5,10 @@
     <th>Rider</th>
     <th>Horse</th>
     <th>Notes</th>
-    <% sort_rider_rides(@rider).each do |ride| %>
+    <% @rider.sort_rider_rides.each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
-        <td><%= link_to ride.rider.name, rider_path(ride.rider) %></td>
         <td><%= link_to ride.horse.name, horse_path(ride.horse) %></td>
         <td><%= ride.notes %></td>
         <td><%= link_to "Update", edit_ride_path(ride) %></td>
