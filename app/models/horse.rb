@@ -8,4 +8,8 @@ class Horse < ApplicationRecord
     def sort_horse_rides
         self.rides.order(:day)
     end
+
+    def todays_horse_rides
+        self.rides.where("day = ?", Date.today).order(:time)
+    end
 end
