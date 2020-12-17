@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     end
 
     def show
+        logged_out_redirection
+
         ride_calendar
     end
 
