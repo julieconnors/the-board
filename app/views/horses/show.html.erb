@@ -21,7 +21,7 @@
     <th>Time</th>
     <th>Rider</th>
     <th>Notes</th>
-    <% sort_horse_rides(@horse).each do |ride| %>
+    <% @horse.sort_horse_rides.each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
