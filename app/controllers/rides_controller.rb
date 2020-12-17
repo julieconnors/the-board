@@ -1,6 +1,5 @@
 class RidesController < ApplicationController
     include RidesHelper
-    include RidersHelper
     before_action :logged_out_redirection
 
     def index        

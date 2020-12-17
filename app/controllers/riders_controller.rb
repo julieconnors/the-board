@@ -25,10 +25,10 @@ class RidersController < ApplicationController
     end
 
     def update
-        rider = Rider.find_by(id: params[:id])
-        rider.update(name: params[:rider][:name])
+        @rider = Rider.find_by(id: params[:id])
+        @rider.update(name: params[:rider][:name])
         
-        edit_rider_validation(rider)
+        edit_rider_validation(@rider)
     end
 
     def destroy
@@ -36,7 +36,7 @@ class RidersController < ApplicationController
         rider.rides.map{|ride| ride.destroy }
         Rider.destroy(params[:id])
 
-        redirect_to riders_path
+        redirect_to user_path(current_user)
     end
 
     private

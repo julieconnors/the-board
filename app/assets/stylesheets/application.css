@@ -128,3 +128,50 @@ img {
     font-family: Kalam;
     font-size: 48px;
 }
+
+#left {
+    width: 40%;
+    float: left; 
+    padding: 2%;
+}
+
+#right {
+    width: 30%;
+    float: right;
+    padding: 2%;
+    margin: 5%;
+    border: 1px solid gray; 
+    background-color: snow;
+}
+
+#today {
+    border-style: solid;
+    border-color: burlywood;
+    border-radius: 5%;
+    background-color: white;
+    border-width: 5px;
+    font-family: Kalam;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+    width: 100%;
+}
+
+#today-heading {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+    width: 100%;
+}
+
+#rider-info {
+    border: 1px solid gray; 
+    background-color: snow;
+    width: 20%;
+    text-align: center;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 2%;
+    padding-bottom: 1%;
+}
