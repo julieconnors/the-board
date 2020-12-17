@@ -1,5 +1,6 @@
 class HorsesController < ApplicationController
     include HorsesHelper
+    before_action :logged_out_redirection
 
     def index
         @horse = Horse.new
