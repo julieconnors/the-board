@@ -5,4 +5,7 @@ class Horse < ApplicationRecord
     validates_presence_of :owner, :nickname
     validates :name, uniqueness: true, presence: true
 
+    def sort_horse_rides
+        self.rides.order(:day)
+    end
 end
