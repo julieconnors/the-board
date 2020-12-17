@@ -12,7 +12,7 @@
 
     <%= form_tag do %>
     
-    <div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
+    <div class="field<%= ' field_with_errors' if !@user.errors[:email].empty? %>">
         <%= label_tag :email %>
         <%= text_field_tag :email %><br>
     </div>
