@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
     include UsersHelper
-    include RidesHelper
     
     def new
         @user = User.new
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
     def show
         logged_out_redirection
 
-        ride_calendar
+        user_ride_calendar
     end
 
     private
