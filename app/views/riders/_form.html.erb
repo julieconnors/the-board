@@ -6,7 +6,7 @@
     </div>
     <% end %>
 
-    <%= form_for @rider, url: riders_path do |f| %>
+    <%= form_for @rider do |f| %>
 
     <div class="field<%= ' field_with_errors' if @rider.errors[:name].any? %>">
         <%= f.label :name %>
