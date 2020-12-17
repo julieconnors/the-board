@@ -1,5 +1,6 @@
 class RidersController < ApplicationController
     include RidersHelper
+    before_action :logged_out_redirection
 
     def index
         @rider = Rider.find_by(id: params[:id])
