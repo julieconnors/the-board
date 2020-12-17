@@ -16,7 +16,7 @@ module RidesHelper
 
             redirect_to user_path(current_user)
         else
-            render :update
+            render :edit
         end
     end
 
@@ -24,24 +24,12 @@ module RidesHelper
         current_user.rides.order(:day)
     end
 
-    def sort_rider_rides(rider)
-        rider.rides.order(:day)
-    end
-
-    def sort_horse_rides(horse)
-        horse.rides.order(:day)
-    end
-
     def format_date_from_params(params)
         params[:day].to_date.strftime('%-m/%d/%y')
     end
 
     def todays_rides
-        current_user.rides.where("day = ?", Date.today)
-    end
-
-    def todays_rider_rides(rider)
-        rider.rides.where("day = ?", Date.today)
+        current_user.rides.where("day = ?", Date.today).order(:time)
     end
 
     def ride_calendar
