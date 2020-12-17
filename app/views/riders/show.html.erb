@@ -7,11 +7,13 @@
     <th>Time</th>
     <th>Horse</th>
     <th>Notes</th>
-<% todays_rider_rides(@rider).each do |ride| %>
+<% @rider.todays_rider_rides.each do |ride| %>
     <tr>
         <td><%= ride.format_time %></td>
         <td><%= ride.horse.name %></td>
         <td><%= ride.notes %></td>
+        <td><%= link_to "Update", edit_ride_path(ride) %></td>
+        <td><%= button_to "Cancel", ride_path(ride), method: :delete, id: "submit"%></td>
     </tr>
     <% end %>
     </table>
