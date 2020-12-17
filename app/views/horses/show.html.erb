@@ -14,14 +14,14 @@
     </ul>
     <% end %>
 
-<h3><%= @horse.nickname %>'s Ride Schedule:</h3>
+<h3>Today's Ride Schedule:</h3>
 
 <table class="board">
     <th>Date</th>
     <th>Time</th>
     <th>Rider</th>
     <th>Notes</th>
-    <% @horse.sort_horse_rides.each do |ride| %>
+    <% @horse.todays_horse_rides.each do |ride| %>
     <tr>
         <td><%= ride.format_date %></td>
         <td><%= ride.format_time %></td>
@@ -30,3 +30,5 @@
     </tr>
     <% end %>
 </table>
+
+

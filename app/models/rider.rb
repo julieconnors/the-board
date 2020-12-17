@@ -9,6 +9,6 @@ class Rider < ApplicationRecord
     end
 
     def sort_rider_rides
-        self.rides.order(:day)
+        self.rides.order(:day).order(:time)
     end
 end
