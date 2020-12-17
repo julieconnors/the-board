@@ -1,5 +1,6 @@
 <h3>All Riders</h3>
 <div class="display">
+    <p class="error"><%= has_riders %></p>
     <% current_user.riders.each do |rider| %>
         <p><%= link_to rider.name, rider_path(rider)%></p>
     <% end %>
