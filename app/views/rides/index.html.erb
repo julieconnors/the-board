@@ -1,8 +1,7 @@
-<h3><%= @rider.name %>'s Rides</h3>
+<h3><%= link_to @rider.name, rider_path(@rider) %>'s Rides</h3>
 <table class="board">
     <th>Date</th>
     <th>Time</th>
-    <th>Rider</th>
     <th>Horse</th>
     <th>Notes</th>
     <% @rider.sort_rider_rides.each do |ride| %>
@@ -16,3 +15,4 @@
     </tr>
     <% end %>
 </table>
+
