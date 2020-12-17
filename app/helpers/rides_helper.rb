@@ -31,12 +31,4 @@ module RidesHelper
     def todays_rides
         current_user.rides.where("day = ?", Date.today).order(:time)
     end
-
-    def ride_calendar
-        if params[:day] == nil
-            @rides = ""
-        else
-            @rides = current_user.rides.where("day = ?", params[:day])
-        end
-    end
 end
