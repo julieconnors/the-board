@@ -18,4 +18,12 @@ module RidersHelper
             render :edit
         end
     end
+
+    def has_riders
+        if current_user.riders.empty?
+            "Please add a rider"
+        else
+            ""
+        end
+    end
 end
