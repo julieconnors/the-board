@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy"
   get "/auth/google_oauth2/callback", to: "sessions#omniauth"
 
-  post "ride_by_date", to: "users#show"
+  #post "ride_by_date", to: "users#show"
   
   resources :riders
   resources :riders do 
