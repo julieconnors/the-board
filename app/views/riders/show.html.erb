@@ -1,5 +1,5 @@
-<div id="rider-info">
-<h3><%= @rider.name %></h3>
+<div>
+<h2><%= @rider.name %></h2>
     <p id="link"><%= link_to "Edit Rider", edit_rider_path(@rider)%></p>
     <%= button_to "Remove Rider", rider_path(@rider), method: :delete %>
 </div>
