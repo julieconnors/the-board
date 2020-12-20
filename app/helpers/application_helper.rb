@@ -8,7 +8,7 @@ module ApplicationHelper
         !!session[:user_id]
     end
 
-    def logged_out_redirection #checks if a user is not logged in and redirects to login page
+    def logged_out_redirection #checks if a user is not logged in and redirects to root
         if !logged_in?
             flash[:logged_out] = "Please login or signup"
             
