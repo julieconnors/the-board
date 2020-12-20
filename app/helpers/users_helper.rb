@@ -4,7 +4,7 @@ module UsersHelper
             session[:user_id] = user.id
 
             redirect_to user_path(user)
-        else 
+        else
             render :new
         end
     end
@@ -12,11 +12,17 @@ module UsersHelper
     def find_user(user)
         @user = user
         if @user.nil?
-            @user = User.new
+            @user = User.new #create a new instance to access errors class
             @user.valid?
-            @user.errors.messages[:email] = "We could not find an account under that email"
-
-            render :new
+                if params[:email] == ""
+                    @user.errors.messages[:email] = "Please enter an email address"
+                    
+                    render :new
+                else
+                    @user.errors.messages[:email] = "We could not find an account under that email"
+            
+                    render :new
+                end
         else
             authenticate_user(user)    
         end
