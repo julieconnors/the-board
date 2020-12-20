@@ -14,7 +14,7 @@
  *= require_self
  */
 body {
-    background-color: beige;
+    background-color: snow;
     font-family: Lato;
     text-align: center;
     font-weight: bold;
@@ -44,6 +44,7 @@ nav a:link {
      margin: 30px;
      font-weight: bold;
      color: black;
+     font-size: 14px;
  }
 
 a:link { 
@@ -53,17 +54,16 @@ a:link {
 
 ul a:visited { 
 	text-decoration: none; 
-	color: purple;
 }
 
 a:hover, a:active { 
 	text-decoration: underline; 
-    color: mediumaquamarine;
+    color: green;
 }
 
 nav a:hover, a:active { 
 	text-decoration: underline; 
-    color: mediumvioletred;
+    color: purple;
 }
 
 ul {
@@ -93,29 +93,18 @@ th {
 }
 
 .info {
-    border: 1px solid gray; 
-    background-color: snow;
+    background-color: white;
+    border-style: ridge;
     width: 50%;
     text-align: center;
     margin-left: 25%;
     margin-right: 25%;
     padding-bottom: 2%;
-}
-
-.display {
-    border: 1px solid gray; 
-    background-color: snow;
-    width: 40%;
-    text-align: center;
-    margin-left: 30%;
-    margin-right: 30%;
     margin-top: 2%;
-    padding-bottom: 1%;
-    padding-top: 1%;
 }
 
 #link a:link {
-    color: purple;
+    color: royalblue;
     text-decoration: underline;
 }
 
@@ -140,8 +129,8 @@ img {
     float: right;
     padding: 2%;
     margin: 5%;
-    border: 1px solid gray; 
-    background-color: snow;
+    border-style: ridge;
+    background-color: white;
 }
 
 #today {
@@ -163,15 +152,4 @@ img {
     margin-right: 15%;
     margin-top: 2%;
     width: 100%;
-}
-
-#rider-info {
-    border: 1px solid gray; 
-    background-color: snow;
-    width: 20%;
-    text-align: center;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-top: 2%;
-    padding-bottom: 1%;
 }
