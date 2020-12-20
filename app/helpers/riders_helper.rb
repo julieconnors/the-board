@@ -1,4 +1,13 @@
 module RidersHelper
+
+    def todays_rider_rides(rider)
+        rider.rides.where("day = ?", Date.today).order(:time)
+    end
+
+    def sort_rider_rides(rider)
+        rider.rides.order(:day).order(:time)
+    end
+
     def rider_validation(rider)
         if rider.valid?
             rider.save
@@ -16,14 +25,6 @@ module RidersHelper
             redirect_to rider_path(rider)
         else
             render :edit
-        end
-    end
-
-    def has_riders
-        if current_user.riders.empty?
-            "Please add a rider"
-        else
-            ""
         end
     end
 end

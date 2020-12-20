@@ -5,8 +5,8 @@
     <th>Rider</th>
     <th>Notes</th>
     <tr>
-        <td><%= @ride.format_date %></td>
-        <td><%= @ride.format_time %></td>
+        <td><%= format_date(ride) %></td>
+        <td><%= format_time(ride) %></td>
         <td><%= link_to @ride.horse.name, horse_path(@ride.horse) %></td>
         <td><%= link_to @ride.rider.name, rider_path(@ride.rider) %></td>
         <td><%= @ride.notes %></td>

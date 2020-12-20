@@ -6,12 +6,24 @@ class Horse < ApplicationRecord
     validates :name, uniqueness: true, presence: true
     validates :nickname, uniqueness: true, presence: true
 
+    # def horse_validation
+    #     if self.valid?
+    #         self.save
 
-    def sort_horse_rides
-        self.rides.order(:day)
-    end
+    #         redirect_to horses_path
+    #     else
+    #         render :new
+    #     end
+    # end
+    
+    # def edit_horse_validation
+    #     if self.valid?
+    #         self.save
 
-    def todays_horse_rides
-        self.rides.where("day = ?", Date.today).order(:time)
-    end
+    #         redirect_to horses_path
+    #     else
+    #         render :edit
+    #     end
+    # end
+    
 end

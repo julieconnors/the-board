@@ -21,10 +21,10 @@
     <th>Time</th>
     <th>Rider</th>
     <th>Notes</th>
-    <% @horse.todays_horse_rides.each do |ride| %>
+    <% horses_rides_today(@horse).each do |ride| %>
     <tr>
-        <td><%= ride.format_date %></td>
-        <td><%= ride.format_time %></td>
+        <td><%= format_date(ride) %></td>
+        <td><%= format_time(ride) %></td>
         <td><%= link_to ride.rider.name, rider_path(ride.rider) %></td>
         <td><%= ride.notes %></td>
     </tr>

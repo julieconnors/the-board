@@ -48,4 +48,12 @@ module UsersHelper
             @rides = current_user.rides.where("day = ?", params[:day])
         end
     end
+
+    def has_riders #checks if user has any riders
+        if current_user.riders.empty?
+            "Please add a rider"
+        else
+            ""
+        end
+    end
 end

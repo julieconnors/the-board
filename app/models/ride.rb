@@ -4,14 +4,6 @@ class Ride < ApplicationRecord
     belongs_to :user
     validates_presence_of :day, :time
     #accepts_nested_attributes_for :horse
-    
-    def format_date
-        self.day.strftime('%-m/%d/%y')
-    end
-
-    def format_time
-        self.time.strftime('%l:%M %p')
-    end
 
     # def horse_attributes=(horse_attributes)
     #     horse = Horse.find_or_create_by(horse_attributes)
