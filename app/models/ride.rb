@@ -12,4 +12,14 @@ class Ride < ApplicationRecord
     #             self.horse = horse
     #         end
     # end
+
+    def format_day_from_params(params)
+        date_time = params[:ride][:time].to_datetime
+        day = date_time.strftime("%-m/%d/%y")
+    end
+
+    def format_time_from_params(params)
+        date_time = params[:ride][:time].to_datetime
+        time = date_time.strftime("%I:%M:%S %p")
+    end
 end
