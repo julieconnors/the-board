@@ -2,6 +2,9 @@
 
 The Board is a scheduler for horse stables to keep track of its horses and riders training schedules.
 
+Blog: https://juliana-g-connors.medium.com/the-board-cb46e39a5926
+
+Video demo: https://www.youtube.com/watch?v=-qgvD-IyhV0
 ## Installation
 
 run bundle install
