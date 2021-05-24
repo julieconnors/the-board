@@ -12,6 +12,7 @@ class RidesController < ApplicationController
 
     def create
         rider = Rider.find(params[:rider_id])
+        ride_params[:time] = ride_params[:time].split(" ")[1]
         ride = rider.rides.build(ride_params)
         ride.user_id = current_user.id
 
@@ -29,7 +30,7 @@ class RidesController < ApplicationController
     def update
         ride = Ride.find(params[:id])
         ride.update(day: params[:ride][:day], time: params[:ride][:time], notes: params[:ride][:notes])
-        
+        #raise ride.inspect
         update_ride_validation(ride)
     end
 
@@ -42,6 +43,6 @@ class RidesController < ApplicationController
     private
 
     def ride_params
-        params.require(:ride).permit(:notes, :time, :rider_id, :horse_id, :day, :horse_attributes => [:id, :name, :owner])
+        params.require(:ride).permit(:notes, :rider_id, :horse_id, :time, :day)
     end
 end
