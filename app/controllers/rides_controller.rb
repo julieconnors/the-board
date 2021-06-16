@@ -11,9 +11,8 @@ class RidesController < ApplicationController
     end
 
     def create
-        rider = Rider.find(params[:rider_id])
         ride_params[:time] = ride_params[:time].split(" ")[1]
-        ride = rider.rides.build(ride_params)
+        ride = Ride.new(ride_params)
         ride.user_id = current_user.id
 
         ride_validation(ride)
@@ -30,7 +29,7 @@ class RidesController < ApplicationController
     def update
         ride = Ride.find(params[:id])
         ride.update(day: params[:ride][:day], time: params[:ride][:time], notes: params[:ride][:notes])
-        #raise ride.inspect
+
         update_ride_validation(ride)
     end
 
