@@ -1,4 +1,7 @@
 <h2>Today's Rides</h2>
+    
+<button><%= link_to "Schedule Ride", new_ride_path %></button>
+
 <table class="board">
     <th>Date</th>
     <th>Time</th>
@@ -20,15 +23,14 @@
 
 <div class="info">
 
-<h3>Select Rider to Schedule Ride</h3>
-
+<h3>Riders</h3>
     <div class="error"><%= has_riders %></div>
 
         <% current_user.riders.each do |rider|%>
             <%= link_to rider.name, rider_path(rider) %><br>
         <% end %>
 
-        <p id="link"><%= link_to "Add Rider", new_rider_path %></p>
+        <button><%= link_to "Add Rider", new_rider_path %></button>
     </div>
 
 
