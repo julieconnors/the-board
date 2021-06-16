@@ -9,7 +9,11 @@
     </div>
     <% end %>
 
-<%= form_for(@ride, url: rider_rides_path(params[:rider_id])) do |f| %>
+<%= form_for @ride do |f| %>
+
+    <%= f.label "Select a rider:" %>
+    <%= f.collection_select(:rider_id, current_user.riders, :id, :name) %><br>
+
     <%= f.label "Select a horse:" %>
     <%= f.collection_select(:horse_id, current_user.horses, :id, :name) %><br>
 
