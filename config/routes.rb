@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :riders do 
     resources :rides, only: [:index, :new, :create]
   end
-  resources :rides, only: [:show, :edit, :update, :destroy]
+  resources :rides
   resources :users
   resources :horses
 end
